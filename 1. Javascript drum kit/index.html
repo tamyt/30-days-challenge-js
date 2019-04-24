@@ -15,7 +15,7 @@
 	 <kbd>S</kbd>
 	 <span class="sound">Friends</span>
    </div>
-   <div data-key="68" class="key">
+   <div data-key="68" class="key biggerkeys">
 	 <kbd>D</kbd>
 	 <span class="sound">Big bang theory</span>
    </div>
@@ -23,11 +23,11 @@
 	 <kbd>F</kbd>
 	 <span class="sound">Dr.house</span>
    </div>
-   <div data-key="71" class="key">
+   <div data-key="71" class="key biggerkeys">
 	 <kbd>G</kbd>
 	 <span class="sound">Stranger things</span>
    </div>
-   <div data-key="72" class="key">
+   <div data-key="72" class="key biggerkeys">
 	 <kbd>H</kbd>
 	 <span class="sound">Breaking bad</span>
    </div>
@@ -39,28 +39,32 @@
 	 <kbd>K</kbd>
 	 <span class="sound">The office</span>
    </div>
-   <div data-key="76" class="key">
+   <div data-key="76" class="key biggerkeys">
 	 <kbd>L</kbd>
 	 <span class="sound">The walking dead</span>
    </div>
 </div>
-<audio data-key="65" src="sounds/xfiles"></audio>
-<audio data-key="83" src="sounds/friends"></audio>
-<audio data-key="68" src="sounds/bbtheory"></audio>
-<audio data-key="70" src="sounds/drh"></audio>
-<audio data-key="71" src="sounds/strangerthings"></audio>
-<audio data-key="72" src="sounds/breaking"></audio>
-<audio data-key="74" src="sounds/lost"></audio>
-<audio data-key="75" src="sounds/theoffice"></audio>
-<audio data-key="76" src="sounds/twdead"></audio>
+<audio data-key="65" src="sounds/xfiles.mp3"></audio>
+<audio data-key="83" src="sounds/friends.mp3"></audio>
+<audio data-key="68" src="sounds/bbtheory.mp3"></audio>
+<audio data-key="70" src="sounds/drh.mp3"></audio>
+<audio data-key="71" src="sounds/strangerthings.mp3"></audio>
+<audio data-key="72" src="sounds/breaking.mp3"></audio>
+<audio data-key="74" src="sounds/lost.mp3"></audio>
+<audio data-key="75" src="sounds/theoffice.mp3"></audio>
+<audio data-key="76" src="sounds/twdead.mp3"></audio>
 
 
 <script>
 	window.addEventListener('keydown',function(e){
       const audio =document.querySelector(`audio[data-key= "${e.keyCode}"]`) ;
+      const key =document.querySelector(`.key[data-key= "${e.keyCode}"]`)
       if(!audio)return;
-      console.log(audio)
+      audio.currentTime = 0;
       audio.play();
+      key.classList.add('playing');
+      key.classList.remove('playing');
+      key.classList.toggle('playing');
 	});
 </script>
 </body>
